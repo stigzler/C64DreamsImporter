@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C64DreamsImporter", "C64DreamsImporter\C64DreamsImporter.csproj", "{2839C0B4-48F8-40CE-8F8D-4B9F5BC1591D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2839C0B4-48F8-40CE-8F8D-4B9F5BC1591D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2839C0B4-48F8-40CE-8F8D-4B9F5BC1591D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2839C0B4-48F8-40CE-8F8D-4B9F5BC1591D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2839C0B4-48F8-40CE-8F8D-4B9F5BC1591D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51C8973B-028C-47BB-A7E5-F6E4668D3EEF}
+	EndGlobalSection
+EndGlobal
