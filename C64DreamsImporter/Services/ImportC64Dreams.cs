@@ -150,7 +150,7 @@ namespace C64DreamsImporter.Services
                 eventArgs.CurrentSecondaryOperation = "Importing Magazines: ";
 
                 DirectoryInfo moduleDirInfo = new DirectoryInfo(modulePath);
-                DirectoryInfo launchboxDestination = new DirectoryInfo(Path.Combine(Properties.Settings.Default.LaunchboxRootPath, "C64 Dreams\\Magazines"));
+                DirectoryInfo launchboxDestination = new DirectoryInfo(Path.Combine(Properties.Settings.Default.LaunchboxRootPath, "C64 Dreams"));
                 moduleDirInfo.Copy(launchboxDestination, true, progress);
                 return null;
             }

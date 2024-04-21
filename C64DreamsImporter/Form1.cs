@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace C64DreamsImporter
 {
@@ -58,12 +59,10 @@ namespace C64DreamsImporter
         {
             if (Services.FileObjectTests.IsLaunchboxRoot(LaunchboxFBD.Path) == false)
             {
-                stigzler.Winforms.Base.Forms.MessageBox messageBox =
-                    new stigzler.Winforms.Base.Forms.MessageBox("The selected path for launchbox does not contain Launchbox.exe or the" +
-                    " Directory 'Core' meaning this is likely an incorrect path. Please review", "Launchbox Root Path incorrect.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, "Incorrect Directory Path");
+                MessageBox.Show("The selected path for launchbox does not contain Launchbox.exe or the" +
+                " Directory 'Core' meaning this is likely an incorrect path. Please review", "Launchbox Root Path incorrect.",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                messageBox.ShowDialog();
                 if (oldpath != null) LaunchboxFBD.Path = oldpath;
                 return false;
             }
@@ -79,12 +78,15 @@ namespace C64DreamsImporter
         {
             if (Services.FileObjectTests.IsC64DreamsRoot(C64DreamsFBD.Path) == false)
             {
-                stigzler.Winforms.Base.Forms.MessageBox messageBox =
-                    new stigzler.Winforms.Base.Forms.MessageBox("The selected folder for C64Dreams is not named 'C64 Dreams'" +
-                    " or does not contain an additoinal sub-folder called 'C64 Dreams'. It's a bit confusing, because of the nested 'C64 Dreams' folders. Try setting to a folder that also contains the folders '7-zip', 'Core' and 'Plugins'. Please review.", "C64Dreams Root Path incorrect.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, "Incorrect Directory Path");
+                //stigzler.Winforms.Base.Forms.MessageBox messageBox =
+                //    new stigzler.Winforms.Base.Forms.MessageBox("The selected folder for C64Dreams is not named 'C64 Dreams'" +
+                //    " or does not contain an additoinal sub-folder called 'C64 Dreams'. It's a bit confusing, because of the nested 'C64 Dreams' folders. Try setting to a folder that also contains the folders '7-zip', 'Core' and 'Plugins'. Please review.", "C64Dreams Root Path incorrect.",
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error, "Incorrect Directory Path");
 
-                messageBox.ShowDialog();
+                MessageBox.Show("The selected folder for C64Dreams is not named 'C64 Dreams'" +
+                    " or does not contain an additoinal sub-folder called 'C64 Dreams'. It's a bit confusing, because of the nested 'C64 Dreams' folders. Try setting to a folder that also contains the folders '7-zip', 'Core' and 'Plugins'. Please review.", "C64Dreams Root Path incorrect.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 if (oldpath != null) C64DreamsFBD.Path = oldpath;
                 return false;
             }
@@ -104,8 +106,14 @@ namespace C64DreamsImporter
 
         private void OperationAlreadyRunning()
         {
-            new stigzler.Winforms.Base.Forms.MessageBox("There is another operation running. Please wait for this to complete before running another.",
-                "Operation already running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, "Cannot run operation").ShowDialog();
+            MessageBox.Show("There is another operation running. Please wait for this to complete before running another.",
+                "Operation already running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            //new stigzler.Winforms.Base.Forms.MessageBox("There is another operation running. Please wait for this to complete before running another.",
+            //    "Operation already running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, "Cannot run operation").ShowDialog();
+
+
+
         }
 
         private bool OperationCanBeRun()
@@ -123,8 +131,11 @@ namespace C64DreamsImporter
 
             if (launchboxInstances.Length != 0 || bigBoxInstances.Length != 0)
             {
-                new stigzler.Winforms.Base.Forms.MessageBox("Either Launchbox or BigBox is running. Please close all instances of these before Importing C64 Dreams",
-                    "Launchbox/Bigbox Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, "Cannot run operation").ShowDialog();
+                MessageBox.Show("Either Launchbox or BigBox is running. Please close all instances of these before Importing C64 Dreams",
+                    "Launchbox/Bigbox Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                //new stigzler.Winforms.Base.Forms.MessageBox("Either Launchbox or BigBox is running. Please close all instances of these before Importing C64 Dreams",
+                //    "Launchbox/Bigbox Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, "Cannot run operation").ShowDialog();
                 return false;
             }
 
@@ -167,13 +178,13 @@ namespace C64DreamsImporter
         {
             if (e == null)
             {
-                new stigzler.Winforms.Base.Forms.MessageBox(successLong, successShort,
-                     MessageBoxButtons.OK, MessageBoxIcon.Information, successShort).ShowDialog();
+                MessageBox.Show(successLong, successShort,
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                new stigzler.Winforms.Base.Forms.MessageBox(failiurLong + e.Message, failiurShort,
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation, failiurShort).ShowDialog();
+                MessageBox.Show(failiurLong + e.Message, failiurShort,
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -252,8 +263,8 @@ namespace C64DreamsImporter
 
             if (!Services.FileObjectTests.IsMagazineModule(fbd.SelectedPath))
             {
-                new stigzler.Winforms.Base.Forms.MessageBox("This appears to be the wrong folder for this Magazine Module. Please ensure that it is unzipped and the root folder is selected.", "Magazine Module Path incorrect.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, "Incorrect Magazine Module Path").ShowDialog();
+                MessageBox.Show("This appears to be the wrong folder for this Magazine Module. Please ensure that it is unzipped and the root folder is selected.", "Magazine Module Path incorrect.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 operationRunning = false;
                 return;
             }
