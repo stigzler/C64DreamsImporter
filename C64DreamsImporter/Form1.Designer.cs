@@ -48,6 +48,8 @@
             this.LaunchboxFBD = new stigzler.Winforms.Base.UserControls.FileObjectTextBox();
             this.MainTT = new stigzler.Winforms.Base.UIElements.ToolTip(this.components);
             this.panel1 = new stigzler.Winforms.Base.UIElements.Panel();
+            this.MainRTB = new stigzler.Winforms.Base.UIElements.RichTextBox();
+            this.label3 = new stigzler.Winforms.Base.UIElements.Label();
             this.menuStrip1.SuspendLayout();
             this.MainSS.SuspendLayout();
             this.ButtonFLP.SuspendLayout();
@@ -64,7 +66,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(624, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(634, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ToolTip = null;
@@ -109,10 +111,10 @@
             this.StatusPB,
             this.StatusPrimaryOpLB,
             this.StatusSecondaryOpLB});
-            this.MainSS.Location = new System.Drawing.Point(0, 154);
+            this.MainSS.Location = new System.Drawing.Point(0, 398);
             this.MainSS.Name = "MainSS";
             this.MainSS.ShowItemToolTips = true;
-            this.MainSS.Size = new System.Drawing.Size(624, 22);
+            this.MainSS.Size = new System.Drawing.Size(634, 22);
             this.MainSS.TabIndex = 5;
             this.MainSS.Text = "statusStrip1";
             this.MainSS.ToolTip = null;
@@ -162,10 +164,10 @@
             this.ButtonFLP.Controls.Add(this.ImportBT);
             this.ButtonFLP.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonFLP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.ButtonFLP.Location = new System.Drawing.Point(0, 111);
+            this.ButtonFLP.Location = new System.Drawing.Point(0, 355);
             this.ButtonFLP.Name = "ButtonFLP";
             this.ButtonFLP.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ButtonFLP.Size = new System.Drawing.Size(624, 43);
+            this.ButtonFLP.Size = new System.Drawing.Size(634, 43);
             this.ButtonFLP.TabIndex = 7;
             // 
             // ImportBT
@@ -181,7 +183,7 @@
             this.ImportBT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ImportBT.Image = global::C64DreamsImporter.Properties.Resources.folder_import;
             this.ImportBT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ImportBT.Location = new System.Drawing.Point(511, 3);
+            this.ImportBT.Location = new System.Drawing.Point(521, 3);
             this.ImportBT.Name = "ImportBT";
             this.ImportBT.Size = new System.Drawing.Size(110, 34);
             this.ImportBT.TabIndex = 6;
@@ -196,7 +198,7 @@
             this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.FontStyle = System.Drawing.FontStyle.Regular;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.label2.Location = new System.Drawing.Point(6, 51);
+            this.label2.Location = new System.Drawing.Point(16, 51);
             this.label2.Name = "label2";
             this.label2.ScaleFont = 100;
             this.label2.Size = new System.Drawing.Size(111, 18);
@@ -229,7 +231,7 @@
             this.C64DreamsFBD.Path = "C:\\Start\\AnExamplePath\\To\\Your\\Stuff\\Middle\\Ellipse\\Test\\Here\\Yeah\\Path\\End.txt";
             this.C64DreamsFBD.ReadOnly = true;
             this.C64DreamsFBD.ScaleFont = 100;
-            this.C64DreamsFBD.Size = new System.Drawing.Size(484, 25);
+            this.C64DreamsFBD.Size = new System.Drawing.Size(494, 25);
             this.C64DreamsFBD.TabIndex = 3;
             this.C64DreamsFBD.TextFont = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.C64DreamsFBD.PathChanged += new stigzler.Winforms.Base.Events.FileSystemObjectPathChanged(this.C64DreamsFBD_PathChanged);
@@ -240,7 +242,7 @@
             this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.FontStyle = System.Drawing.FontStyle.Regular;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.label1.Location = new System.Drawing.Point(6, 14);
+            this.label1.Location = new System.Drawing.Point(21, 14);
             this.label1.Name = "label1";
             this.label1.ScaleFont = 100;
             this.label1.Size = new System.Drawing.Size(106, 18);
@@ -273,7 +275,7 @@
             this.LaunchboxFBD.Path = "C:\\Start\\AnExamplePath\\To\\Your\\Stuff\\Middle\\Ellipse\\Test\\Here\\Yeah\\Path\\End.txt";
             this.LaunchboxFBD.ReadOnly = true;
             this.LaunchboxFBD.ScaleFont = 100;
-            this.LaunchboxFBD.Size = new System.Drawing.Size(484, 25);
+            this.LaunchboxFBD.Size = new System.Drawing.Size(494, 25);
             this.LaunchboxFBD.TabIndex = 1;
             this.LaunchboxFBD.TextFont = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LaunchboxFBD.PathChanged += new stigzler.Winforms.Base.Events.FileSystemObjectPathChanged(this.LaunchboxFBD_PathChanged);
@@ -308,6 +310,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panel1.BackgroundShadeFactor = 1D;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.MainRTB);
             this.panel1.Controls.Add(this.LaunchboxFBD);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.C64DreamsFBD);
@@ -316,14 +320,47 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 86);
+            this.panel1.Size = new System.Drawing.Size(634, 330);
             this.panel1.TabIndex = 8;
+            // 
+            // MainRTB
+            // 
+            this.MainRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.MainRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MainRTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.MainRTB.Location = new System.Drawing.Point(9, 109);
+            this.MainRTB.Name = "MainRTB";
+            this.MainRTB.Size = new System.Drawing.Size(613, 215);
+            this.MainRTB.TabIndex = 5;
+            this.MainRTB.Text = "";
+            this.MainRTB.WordWrap = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.FontStyle = System.Drawing.FontStyle.Regular;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.label3.Location = new System.Drawing.Point(12, 84);
+            this.label3.Name = "label3";
+            this.label3.ScaleFont = 100;
+            this.label3.Size = new System.Drawing.Size(33, 18);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Log:";
+            this.label3.ToolTip = this.MainTT;
+            this.label3.ToolTipHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label3.ToolTipImage = null;
+            this.label3.ToolTipText = "";
+            this.label3.ToolTipTitle = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 176);
+            this.ClientSize = new System.Drawing.Size(634, 420);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonFLP);
             this.Controls.Add(this.MainSS);
@@ -372,6 +409,8 @@
         private System.Windows.Forms.ToolStripMenuItem magazineModuleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem v060Hotfix2ToolStripMenuItem;
         private stigzler.Winforms.Base.UIElements.Panel panel1;
+        private stigzler.Winforms.Base.UIElements.RichTextBox MainRTB;
+        private stigzler.Winforms.Base.UIElements.Label label3;
     }
 }
 

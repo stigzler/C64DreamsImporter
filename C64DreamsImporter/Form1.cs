@@ -1,5 +1,6 @@
 ﻿using C64DreamsImporter.Services;
 using stigzler.Utilities.Base.BaseEventArgs;
+using stigzler.Utilities.Base.Extensions;
 using stigzler.Winforms.Base.Forms;
 using stigzler.Winforms.Base.Forms.BaseForm;
 using System;
@@ -109,11 +110,6 @@ namespace C64DreamsImporter
             MessageBox.Show("There is another operation running. Please wait for this to complete before running another.",
                 "Operation already running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            //new stigzler.Winforms.Base.Forms.MessageBox("There is another operation running. Please wait for this to complete before running another.",
-            //    "Operation already running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, "Cannot run operation").ShowDialog();
-
-
-
         }
 
         private bool OperationCanBeRun()
@@ -148,7 +144,7 @@ namespace C64DreamsImporter
         private async void ImportC64DreamsDreams()
         {
 
-            if (!OperationCanBeRun()) { return; };
+            if (!OperationCanBeRun()) { return; };          
 
 
             StatusPB.Style = ProgressBarStyle.Marquee;
@@ -160,18 +156,47 @@ namespace C64DreamsImporter
             Progress<OperationProgressChangedEventArgs> progress = new Progress<OperationProgressChangedEventArgs>();
             progress.ProgressChanged += Progress_ProgressChanged;
 
-            Exception ImportResult = await Task.Run(() => ImportC64Dreams.ImportMainLibrary(LaunchboxFBD.Path,
+            Log("==== COMMENCING C64 DREAMS IMPORT ====", Color.Orange);
+
+            var ImportResults = await Task.Run(() => ImportC64Dreams.ImportMainLibrary(LaunchboxFBD.Path,
                 C64DreamsFBD.Path, progress, eventArgs));
 
-            OperationOutcomePrompt(ImportResult, "Import Successful", "C64 Dreams import successful!", "Import Unsuccessful",
-                "C64 Dreams import unsuccessful. Error: ");
+            Exception lastImportExcpetion = null;
+            foreach (var importResult in ImportResults)
+            {
+                if (importResult.MoveCopyExceptions.Count() >0)
+                {
+                    Log(importResult.OperationSummary, Color.Red); 
+                    foreach(var mce in importResult.MoveCopyExceptions)
+                    {
+                        Log($"   >>> Error: SourcePath = {mce.SourcePath}, DestinationPath = {mce.DestinationPath}, Exception Message: {mce.Exception.Message}", Color.Red);
+                        lastImportExcpetion = mce.Exception;
+                    }
+                }
+                else Log(importResult.OperationSummary, Color.Green);
+            }
+
+            OperationOutcomePrompt(lastImportExcpetion, "Import Fully Successful", "C64 Dreams import successful!", "Import Unsuccessful",
+                "C64 Dreams import unsuccessful. Last Error (see log for more info of all errors): ");
 
             ClearProgress();
 
             operationRunning = false;
             progress.ProgressChanged -= Progress_ProgressChanged;
 
+            Log("==== C64 DREAMS IMPORT FINISHED ====", Color.Orange);
+        }
 
+        private void Log(string message, Color color = default)
+        {
+            MainRTB.With(tb =>
+            {
+                tb.SelectionStart = tb.TextLength;
+                tb.SelectionLength = 0;
+                tb.SelectionColor = color;
+                tb.AppendText(message + Environment.NewLine);
+                tb.SelectionColor = tb.ForeColor;
+            });
         }
 
         private void OperationOutcomePrompt(Exception e, string successShort, string successLong, string failiurShort, string failiurLong)
